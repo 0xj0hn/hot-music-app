@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotmusic/models/theme_model.dart';
+import 'package:hotmusic/views/screens/auth/login_screen.dart';
 import 'package:hotmusic/views/screens/home/home_screen.dart';
 
 void main() {
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hot Music',
       theme: MyThemes.lightTheme,
-      home: const HomeScreen(),
+      debugShowCheckedModeBanner: false,
+      home: const LoginScreen(),
     );
   }
 }
