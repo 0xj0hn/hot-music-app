@@ -21,7 +21,7 @@ class ArtistWidget extends StatelessWidget {
               CircleAvatar(
                 radius: 50,
                 foregroundImage: NetworkImage(
-                  "http://hot-music.surge.sh/artists/apache207.jpg",
+                  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fww1.prweb.com%2Fprfiles%2F2006%2F05%2F23%2F389860%2FeditIMG1709.jpg&f=1&nofb=1&ipt=c287f27771403bbf0287b0336eb8c52099d50cd40812ba1af6bbacfd513c36e3&ipo=images",
                   scale: 200,
                 ),
               ),
