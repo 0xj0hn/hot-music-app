@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  TextEditingController? controller;
-  String label;
-  Icon suffixIcon;
-  Widget? prefixIcon;
-  bool obscured;
+  final TextEditingController? controller;
+  final String label;
+  final Icon suffixIcon;
+  final Widget? prefixIcon;
+  final bool obscured;
   CustomTextField({
     super.key,
     this.controller,

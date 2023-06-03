@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
-  Widget child;
-  Function()? onPressed;
-  BorderRadius? borderRadius;
-  EdgeInsets padding;
+  final Widget child;
+  final Function()? onPressed;
+  final BorderRadius? borderRadius;
+  final EdgeInsets padding;
   CustomButton({
     super.key,
     required this.child,
