@@ -40,14 +40,18 @@ class HomeDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
               radius: 45,
-              child: FlutterLogo(),
+              child: Container(
+                height: 50,
+                width: 50,
+                child: FlutterLogo(),
+              ),
             ),
           ),
-          Text("FirstName LastName"),
+          Text("John Doe"),
           Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
@@ -84,6 +88,12 @@ class HomeDrawer extends StatelessWidget {
               leading: yourCollectionOptions[index]["icon"],
             ),
           ),
+          Divider(),
+          ListTile(
+            title: Text("About"),
+            leading: Icon(Icons.info_outline),
+            onTap: () {},
+          )
         ],
       ),
     );
