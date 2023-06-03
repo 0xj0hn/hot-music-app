@@ -3,16 +3,38 @@ import 'package:hotmusic/views/screens/home/home_drawer.dart';
 import 'package:hotmusic/views/widgets/artist_widget.dart';
 import 'package:hotmusic/views/widgets/music_list_tile_preview_widget.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  bool isShownSearchBox = false;
+  FocusNode searchBoxFocusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Music Streamer'),
+        title: Visibility(
+          visible: isShownSearchBox,
+          child: SearchBar(
+            focusNode: searchBoxFocusNode,
+            elevation: MaterialStatePropertyAll(0.3),
+          ),
+          replacement: Text("Music Streamer"),
+        ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(
+            onPressed: () {
+              setState(() {
+                isShownSearchBox = !isShownSearchBox;
+              });
+              searchBoxFocusNode.requestFocus();
+            },
+            icon: Icon(Icons.search_outlined),
+          ),
         ],
       ),
       drawer: HomeDrawer(),
