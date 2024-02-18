@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotmusic/views/screens/home/home_drawer.dart';
+import 'package:hotmusic/views/screens/music/music_player_screen.dart';
 import 'package:hotmusic/views/widgets/artist_widget.dart';
 import 'package:hotmusic/views/widgets/music_list_tile_preview_widget.dart';
 
@@ -12,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool isShownSearchBox = false;
+  ScrollController artistsScrollController = ScrollController();
   FocusNode searchBoxFocusNode = FocusNode();
   @override
   Widget build(BuildContext context) {
@@ -41,8 +43,10 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         children: [
           Scrollbar(
+            controller: artistsScrollController,
             radius: Radius.circular(2),
             child: SingleChildScrollView(
+              controller: artistsScrollController,
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [...List.generate(12, (index) => ArtistWidget())],
@@ -56,7 +60,19 @@ class _HomeScreenState extends State<HomeScreen> {
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
-          ...List.generate(8, (index) => MusicPreview()),
+          ...List.generate(
+            8,
+            (index) => MusicPreview(
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MusicPlayerScreen(
+                    title: "Dream On",
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
